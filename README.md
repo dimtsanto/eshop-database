@@ -125,9 +125,9 @@ SOURCE schema.sql;
 
 SOURCE insert_data.sql;
 
-4. Execute queries from:
+4. Execute queries:
 
-queries.sql
+SOURCE queries.sql
 
 ---
 
