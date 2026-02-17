@@ -1,5 +1,6 @@
 CREATE DATABASE IF NOT EXISTS `e_shop`;
 USE `e_shop`;
+
 CREATE TABLE IF NOT EXISTS `address` (
 `id_address` int NOT NULL AUTO_INCREMENT,
 `id_customer` int NOT NULL,
@@ -10,11 +11,13 @@ CREATE TABLE IF NOT EXISTS `address` (
 `Χωρα` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 PRIMARY KEY (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `category` (
 `id_category` int NOT NULL AUTO_INCREMENT,
 `Category_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
 PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `customer` (
 `id_customer` int NOT NULL AUTO_INCREMENT,
 `lname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NOT NULL,
@@ -30,6 +33,7 @@ PRIMARY KEY (`id_customer`),
 KEY `id_adress` (`id_adress`),
 KEY `id_sex` (`id_sex`)
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `order` (
 `id_order` int NOT NULL AUTO_INCREMENT,
 `id_customer` int DEFAULT NULL,
@@ -38,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `order` (
 PRIMARY KEY (`id_order`),
 KEY `id_customer` (`id_customer`)
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `itemsordered` (
 `id_itemsordered` int NOT NULL AUTO_INCREMENT,
 `id_order` int DEFAULT NULL,
@@ -48,6 +53,7 @@ PRIMARY KEY (`id_itemsordered`),
 KEY `id_order` (`id_order`),
 KEY `id_product` (`id_product`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `payment` (
 `id_payment` int NOT NULL AUTO_INCREMENT,
 `id_order` int DEFAULT NULL,
@@ -57,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
 PRIMARY KEY (`id_payment`),
 KEY `id_order` (`id_order`)
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `product` (
 `id_product` int NOT NULL AUTO_INCREMENT,
 `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -67,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 PRIMARY KEY (`id_product`),
 KEY `id_category` (`id_category`)
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `reviews` (
 `id_review` int NOT NULL AUTO_INCREMENT,
 `id_customer` int DEFAULT NULL,
@@ -77,11 +85,13 @@ KEY `id_customer` (`id_customer`),
 KEY `id_product` (`id_product`),
 CONSTRAINT `chk_review_score` CHECK ((`Review_Score` between 1 and 10))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `sex` (
 `id_sex` int NOT NULL AUTO_INCREMENT,
 `Type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
 PRIMARY KEY (`id_sex`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `shipment` (
 `id_shipment` int NOT NULL AUTO_INCREMENT,
 `id_order` int DEFAULT NOT NULL,
@@ -91,4 +101,5 @@ CREATE TABLE IF NOT EXISTS `shipment` (
 `Ηπειρος` int DEFAULT NULL,
 PRIMARY KEY (`id_shipment`),
 KEY `id_order` (`id_order`)
+
 ) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
