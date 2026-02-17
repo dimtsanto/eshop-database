@@ -111,23 +111,7 @@ The system demonstrates database design principles such as primary keys, foreign
 ---
 
 ## How to Run
-
-1. Create a MySQL database:
-
-CREATE DATABASE eshop;
-USE eshop;
-
-2. Run the schema script:
-
-SOURCE schema.sql;
-
-3. Insert sample data:
-
-SOURCE insert_data.sql;
-
-4. Execute queries:
-
-SOURCE queries.sql
+TBA
 
 ---
 
