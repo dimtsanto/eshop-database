@@ -133,12 +133,12 @@ queries.sql
 
 ## Example Queries
 
--Cities ranked by total customer spending
--High-value customers (spent over €500)
--Order shipment details
--Monthly sales analysis
--Average items per order
--Customer purchase history with product details and total cost
+- Cities ranked by total customer spending
+- High-value customers (spent over €500)
+- Order shipment details
+- Monthly sales analysis
+- Average items per order
+- Customer purchase history with product details and total cost
 
 ## License
 
