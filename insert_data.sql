@@ -1,23 +1,7 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               8.2.0 - MySQL Community Server - GPL
--- Server OS:                    Win64
--- HeidiSQL Version:             12.6.0.6765
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-USE `e_shop`;
+USE `e_shop1`;
 
 DELETE FROM `address`;
-INSERT INTO `address` (`id_address`, `id_customer`, `Δρομος`, `Οδος`, `Πολη`, `ΤΚ`, `Χωρα`) VALUES
+INSERT INTO `address` (`id_address`, `id_customer`, `street`, `building`, `city`, `postal_code`, `country`) VALUES
 	(1, 1, 'Leoforos Kifisias', 10, 'Athens', '11523', 'Greece'),
 	(2, 2, 'Ermou', 5, 'Athens', '10563', 'Greece'),
 	(3, 3, 'Tsimiski', 3, 'Thessaloniki', '54623', 'Greece'),
@@ -29,9 +13,8 @@ INSERT INTO `address` (`id_address`, `id_customer`, `Δρομος`, `Οδος`, 
 	(9, 9, 'Kifisou', 18, 'Athens', '12242', 'Greece'),
 	(10, 10, 'Perikleous', 6, 'Athens', '10563', 'Greece');
 
--- Dumping data for table e_shop.category: ~10 rows (approximately)
 DELETE FROM `category`;
-INSERT INTO `category` (`id_category`, `Category_name`) VALUES
+INSERT INTO `category` (`id_category`, `category_name`) VALUES
 	(1, 'Electronics'),
 	(2, 'Clothing'),
 	(3, 'Books'),
@@ -43,21 +26,19 @@ INSERT INTO `category` (`id_category`, `Category_name`) VALUES
 	(9, 'Automotive'),
 	(10, 'Garden');
 
--- Dumping data for table e_shop.customer: ~10 rows (approximately)
 DELETE FROM `customer`;
 INSERT INTO `customer` (`id_customer`, `lname`, `fname`, `birthday`, `username`, `password`, `email`, `phone`, `id_address`, `id_sex`) VALUES
-	(1, 'Smith', 'John', '1990-01-01', 'jsmith', 'pass123', 'john@example.com', '2100000001', 2, 1),
-	(2, 'Doe', 'Jane', '1992-02-02', 'jdoe', 'pass234', 'jane@example.com', '2100000002', 4, 2),
-	(3, 'Brown', 'Charlie', '1985-03-03', 'cbrown', 'pass345', 'charlie@example.com', '2100000003', 6, 1),
-	(4, 'Taylor', 'Emma', '1995-04-04', 'etaylor', 'pass456', 'emma@example.com', '2100000004', 8, 2),
-	(5, 'Wilson', 'Liam', '1991-05-05', 'lwilson', 'pass567', 'liam@example.com', '2100000005', 10, 1),
-	(6, 'Moore', 'Olivia', '1993-06-06', 'omoore', 'pass678', 'olivia@example.com', '2100000006', 1, 2),
-	(7, 'Anderson', 'Noah', '1988-07-07', 'nanderson', 'pass789', 'noah@example.com', '2100000007', 3, 1),
-	(8, 'Thomas', 'Ava', '1996-08-08', 'athomas', 'pass890', 'ava@example.com', '2100000008', 5, 2),
-	(9, 'Jackson', 'Sophia', '1997-09-09', 'sjackson', 'pass901', 'sophia@example.com', '2100000009', 7, 2),
-	(10, 'White', 'James', '1989-10-10', 'jwhite', 'pass012', 'james@example.com', '2100000010', 9, 1);
+	(1, 'Smith', 'John', '1990-01-01', 'jsmith', 'pass123', 'john@example.com', '2100000001', NULL, 1),
+	(2, 'Doe', 'Jane', '1992-02-02', 'jdoe', 'pass234', 'jane@example.com', '2100000002', NULL, 2),
+	(3, 'Brown', 'Charlie', '1985-03-03', 'cbrown', 'pass345', 'charlie@example.com', '2100000003', NULL, 1),
+	(4, 'Taylor', 'Emma', '1995-04-04', 'etaylor', 'pass456', 'emma@example.com', '2100000004', NULL, 2),
+	(5, 'Wilson', 'Liam', '1991-05-05', 'lwilson', 'pass567', 'liam@example.com', '2100000005', NULL, 1),
+	(6, 'Moore', 'Olivia', '1993-06-06', 'omoore', 'pass678', 'olivia@example.com', '2100000006', NULL, 2),
+	(7, 'Anderson', 'Noah', '1988-07-07', 'nanderson', 'pass789', 'noah@example.com', '2100000007', NULL, 1),
+	(8, 'Thomas', 'Ava', '1996-08-08', 'athomas', 'pass890', 'ava@example.com', '2100000008', NULL, 2),
+	(9, 'Jackson', 'Sophia', '1997-09-09', 'sjackson', 'pass901', 'sophia@example.com', '2100000009', NULL, 2),
+	(10, 'White', 'James', '1989-10-10', 'jwhite', 'pass012', 'james@example.com', '2100000010', NULL, 1);
 
--- Dumping data for table e_shop.itemsordered: ~10 rows (approximately)
 DELETE FROM `itemsordered`;
 INSERT INTO `itemsordered` (`id_itemsordered`, `id_order`, `id_product`, `quantity`, `price`) VALUES
 	(1, 1, 1, 1, 699.99),
@@ -71,7 +52,6 @@ INSERT INTO `itemsordered` (`id_itemsordered`, `id_order`, `id_product`, `quanti
 	(9, 9, 9, 2, 49.98),
 	(10, 10, 10, 1, 19.99);
 
--- Dumping data for table e_shop.order: ~10 rows (approximately)
 DELETE FROM `order`;
 INSERT INTO `order` (`id_order`, `id_customer`, `order_date`, `status`) VALUES
 	(1, 1, '2025-05-01', 'Pending'),
@@ -85,7 +65,6 @@ INSERT INTO `order` (`id_order`, `id_customer`, `order_date`, `status`) VALUES
 	(9, 9, '2025-05-09', 'Delivered'),
 	(10, 10, '2025-05-10', 'Pending');
 
--- Dumping data for table e_shop.payment: ~10 rows (approximately)
 DELETE FROM `payment`;
 INSERT INTO `payment` (`id_payment`, `id_order`, `payment_date`, `amount`, `method`) VALUES
 	(1, 1, '2025-05-01', 699.99, 'Credit Card'),
@@ -99,7 +78,6 @@ INSERT INTO `payment` (`id_payment`, `id_order`, `payment_date`, `amount`, `meth
 	(9, 9, '2025-05-09', 49.98, 'Cash'),
 	(10, 10, '2025-05-10', 19.99, 'Credit Card');
 
--- Dumping data for table e_shop.product: ~10 rows (approximately)
 DELETE FROM `product`;
 INSERT INTO `product` (`id_product`, `name`, `description`, `price`, `stock`, `id_category`) VALUES
 	(1, 'Smartphone', 'Latest Android smartphone', 699.99, 100, 1),
@@ -113,9 +91,8 @@ INSERT INTO `product` (`id_product`, `name`, `description`, `price`, `stock`, `i
 	(9, 'Toy Car', 'Battery operated toy car', 24.99, 60, 5),
 	(10, 'Garden Hose', '10-meter garden hose', 19.99, 35, 10);
 
--- Dumping data for table e_shop.reviews: ~10 rows (approximately)
 DELETE FROM `reviews`;
-INSERT INTO `reviews` (`id_review`, `id_customer`, `id_product`, `Review_Score`) VALUES
+INSERT INTO `reviews` (`id_review`, `id_customer`, `id_product`, `review_score`) VALUES
 	(1, 1, 1, 9),
 	(2, 2, 2, 8),
 	(3, 3, 3, 10),
@@ -127,16 +104,14 @@ INSERT INTO `reviews` (`id_review`, `id_customer`, `id_product`, `Review_Score`)
 	(9, 9, 9, 7),
 	(10, 10, 10, 10);
 
--- Dumping data for table e_shop.sex: ~3 rows (approximately)
 DELETE FROM `sex`;
 INSERT INTO `sex` (`id_sex`, `Type`) VALUES
 	(1, 'Male'),
 	(2, 'Female'),
 	(3, 'Other');
 
--- Dumping data for table e_shop.shipment: ~10 rows (approximately)
 DELETE FROM `shipment`;
-INSERT INTO `shipment` (`id_shipment`, `id_order`, `Ημερομηνια_αποστολης`, `Χωρα`, `Αριθμος_αποστολης`, `Ηπειρος`) VALUES
+INSERT INTO `shipment` (`id_shipment`, `id_order`, `shipment_date`, `country`, `shipment_number`, `continent`) VALUES
 	(1, 1, '2025-05-02', 1, 123001, 1),
 	(2, 2, '2025-05-03', 1, 123002, 1),
 	(3, 3, '2025-05-04', 1, 123003, 1),
@@ -147,10 +122,3 @@ INSERT INTO `shipment` (`id_shipment`, `id_order`, `Ημερομηνια_απο�
 	(8, 8, '2025-05-09', 1, 123008, 1),
 	(9, 9, '2025-05-10', 1, 123009, 1),
 	(10, 10, '2025-05-11', 1, 123010, 1);
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
-
