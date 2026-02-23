@@ -51,6 +51,7 @@ The system demonstrates database design principles such as primary keys, foreign
 - id_address (PK)
 - id_customer (FK)
 - street
+- building
 - city
 - postal_code
 - country
@@ -92,7 +93,7 @@ The system demonstrates database design principles such as primary keys, foreign
 - id_order (FK)
 - id_address (FK)
 - shipment_date
-- tracking_number
+- shipment_number
 - country
 - continent
 
