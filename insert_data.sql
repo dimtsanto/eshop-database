@@ -28,16 +28,16 @@ INSERT INTO `category` (`id_category`, `category_name`) VALUES
 
 DELETE FROM `customer`;
 INSERT INTO `customer` (`id_customer`, `lname`, `fname`, `birthday`, `username`, `password`, `email`, `phone`, `id_address`, `id_sex`) VALUES
-	(1, 'Smith', 'John', '1990-01-01', 'jsmith', 'pass123', 'john@example.com', '2100000001', NULL, 1),
-	(2, 'Doe', 'Jane', '1992-02-02', 'jdoe', 'pass234', 'jane@example.com', '2100000002', NULL, 2),
-	(3, 'Brown', 'Charlie', '1985-03-03', 'cbrown', 'pass345', 'charlie@example.com', '2100000003', NULL, 1),
-	(4, 'Taylor', 'Emma', '1995-04-04', 'etaylor', 'pass456', 'emma@example.com', '2100000004', NULL, 2),
-	(5, 'Wilson', 'Liam', '1991-05-05', 'lwilson', 'pass567', 'liam@example.com', '2100000005', NULL, 1),
-	(6, 'Moore', 'Olivia', '1993-06-06', 'omoore', 'pass678', 'olivia@example.com', '2100000006', NULL, 2),
-	(7, 'Anderson', 'Noah', '1988-07-07', 'nanderson', 'pass789', 'noah@example.com', '2100000007', NULL, 1),
-	(8, 'Thomas', 'Ava', '1996-08-08', 'athomas', 'pass890', 'ava@example.com', '2100000008', NULL, 2),
-	(9, 'Jackson', 'Sophia', '1997-09-09', 'sjackson', 'pass901', 'sophia@example.com', '2100000009', NULL, 2),
-	(10, 'White', 'James', '1989-10-10', 'jwhite', 'pass012', 'james@example.com', '2100000010', NULL, 1);
+	(1, 'Smith', 'John', '1990-01-01', 'jsmith', 'pass123', 'john@example.com', '2100000001', 2, 1),
+	(2, 'Doe', 'Jane', '1992-02-02', 'jdoe', 'pass234', 'jane@example.com', '2100000002', 4, 2),
+	(3, 'Brown', 'Charlie', '1985-03-03', 'cbrown', 'pass345', 'charlie@example.com', '2100000003', 6, 1),
+	(4, 'Taylor', 'Emma', '1995-04-04', 'etaylor', 'pass456', 'emma@example.com', '2100000004', 8, 2),
+	(5, 'Wilson', 'Liam', '1991-05-05', 'lwilson', 'pass567', 'liam@example.com', '2100000005', 10, 1),
+	(6, 'Moore', 'Olivia', '1993-06-06', 'omoore', 'pass678', 'olivia@example.com', '2100000006', 1, 2),
+	(7, 'Anderson', 'Noah', '1988-07-07', 'nanderson', 'pass789', 'noah@example.com', '2100000007', 3, 1),
+	(8, 'Thomas', 'Ava', '1996-08-08', 'athomas', 'pass890', 'ava@example.com', '2100000008', 5, 2),
+	(9, 'Jackson', 'Sophia', '1997-09-09', 'sjackson', 'pass901', 'sophia@example.com', '2100000009', 7, 2),
+	(10, 'White', 'James', '1989-10-10', 'jwhite', 'pass012', 'james@example.com', '2100000010', 9, 1);
 
 DELETE FROM `itemsordered`;
 INSERT INTO `itemsordered` (`id_itemsordered`, `id_order`, `id_product`, `quantity`, `price`) VALUES
@@ -122,3 +122,4 @@ INSERT INTO `shipment` (`id_shipment`, `id_order`, `shipment_date`, `country`, `
 	(8, 8, '2025-05-09', 1, 123008, 1),
 	(9, 9, '2025-05-10', 1, 123009, 1),
 	(10, 10, '2025-05-11', 1, 123010, 1);
+
