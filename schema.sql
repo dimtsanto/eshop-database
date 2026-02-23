@@ -1,20 +1,20 @@
-CREATE DATABASE IF NOT EXISTS `e_shop`;
-USE `e_shop`;
+CREATE DATABASE IF NOT EXISTS `e_shop1`;
+USE `e_shop1`;
 
 CREATE TABLE IF NOT EXISTS `address` (
 `id_address` int NOT NULL AUTO_INCREMENT,
 `id_customer` int NOT NULL,
-`Δρομος` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-`Οδος` tinyint NOT NULL,
-`Πολη` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-`ΤΚ` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-`Χωρα` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+`street` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+`building` tinyint NOT NULL,
+`city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+`postal_code` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+`country` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
 PRIMARY KEY (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_UNICODE_CI;
 
 CREATE TABLE IF NOT EXISTS `category` (
 `id_category` int NOT NULL AUTO_INCREMENT,
-`Category_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`category_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
 PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=UTF8MB4_UNICODE_CI;
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
 `id_review` int NOT NULL AUTO_INCREMENT,
 `id_customer` int DEFAULT NULL,
 `id_product` int DEFAULT NULL,
-`Review_Score` tinyint DEFAULT NULL,
+`review_score` tinyint DEFAULT NULL,
 PRIMARY KEY (`id_review`),
 KEY `id_customer` (`id_customer`),
 KEY `id_product` (`id_product`),
@@ -95,11 +95,10 @@ PRIMARY KEY (`id_sex`) USING BTREE
 CREATE TABLE IF NOT EXISTS `shipment` (
 `id_shipment` int NOT NULL AUTO_INCREMENT,
 `id_order` int NOT NULL,
-`Ημερομηνια_αποστολης` date DEFAULT NULL,
-`Χωρα` tinyint DEFAULT NULL,
-`Αριθμος_αποστολης` int NOT NULL,
-`Ηπειρος` int DEFAULT NULL,
+`shipment_date` date DEFAULT NULL,
+`country` tinyint DEFAULT NULL,
+`shipment_number` int NOT NULL,
+`continent` int DEFAULT NULL,
 PRIMARY KEY (`id_shipment`),
 KEY `id_order` (`id_order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
