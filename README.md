@@ -1,4 +1,4 @@
-# E-Shop Database System (MySQL)
+# 'Set Theorists E-Shop' Database System (MySQL)
 
 This project is a relational database design for an online store (e-commerce) management system implemented in MySQL.  
 It was developed as part of a university database course and models the core functionality of an e-shop, including customers, products, orders, payments, shipments, and reviews.
